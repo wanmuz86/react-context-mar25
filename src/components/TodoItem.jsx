@@ -12,7 +12,7 @@ const TodoItem = ({item}) => {
     }
    return (
     <div>
-        <p>{item} <button onClick={removeItem}>Remove</button></p>
+        <p>{item.name} <button onClick={removeItem}>Remove</button></p>
     </div>
   )
 }

@@ -8,6 +8,7 @@ const Add = () => {
     const addTodo = () =>{
         dispatch({type:'ADD_TODO',
         payload: {id:Date.now(), name:todoItem}})
+     
         setTodoItem('')
     }
   return (
