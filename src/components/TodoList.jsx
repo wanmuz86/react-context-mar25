@@ -1,14 +1,17 @@
 import React from 'react'
 import TodoItem from './TodoItem'
+import { useTodo } from '../lib/TodoContext'
 
 const TodoList = () => {
-    const todos = ["Learn React","Learn State Management","Learn API Call"]
+  
+  const {state}  = useTodo()
+
   return (
     <div>
         <h2>List To Do</h2>
         {
-            todos.map(val=> 
-                <TodoItem key={val} item={val}/>
+            state.todos.map(val=> 
+                <TodoItem key={val.id} item={val}/>
             )
         }
     </div>
