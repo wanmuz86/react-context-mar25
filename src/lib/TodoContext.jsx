@@ -16,7 +16,7 @@ const TodoProvider = ({children}) => {
 
     // 3) Create reducer, and define all the actions happen on the State 
     // And the payload passed by the UI
-
+// Indentify the actions used from each of the components
     const todoReducer = (state,action) => {
         switch(action.type){
 
@@ -43,10 +43,22 @@ const TodoProvider = ({children}) => {
 
         }
     }
-    
 
-    // Indentify the actions used from each of the components
+
+    const [state,dispatch] = useReducer(todoReducer,initialState);
+    return (
+        <TodoContext.Provider value={{state,dispatch}}>
+            {children}
+        </TodoContext.Provider>
+    )
 
 };
 
-export {TodoProvider}
+const useTodo = () => {
+    const context = useContext(TodoContext);
+    if (!context){
+        throw new Error('useTodo needs to be used within a TodoContext Provider')
+    }
+}
+
+export {TodoProvider, useTodo}
