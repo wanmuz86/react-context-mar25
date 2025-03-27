@@ -44,6 +44,9 @@ const TodoProvider = ({children}) => {
         }
     }
 
+    // useReducer will combined the defined state (initialState) and actions (todoReducer) to be exported and used
+    /// by all components within <TodoContext.Provider>
+    // THe components will access it using state = intialState and dispatch => methods/reducer
 
     const [state,dispatch] = useReducer(todoReducer,initialState);
     return (
