@@ -22,12 +22,23 @@ const TodoProvider = ({children}) => {
 
             case 'ADD_TODO':
 
-            return
+            // object spread operator .. Update the value of state with the new todos
+            return {
+                ...state,
+                // existing todos + new Item = action.payload = {id:, name:}
+                todos:[...state.todos, action.payload]
+            }
 
             case 'REMOVE_TODO':
-                
-            return
+                // object spread operator .. Update the value of state with updated todos
+            return {
+                ... state, 
+                todos: todos.filter.todos.filter(todo => todo.id != action.payload)
 
+            }
+            // the others, eg: for List/Get -> We return the state/todos
+
+            default:
             return state
 
         }
